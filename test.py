@@ -6,6 +6,8 @@ import os
 # Enable fail-safe feature
 pyautogui.FAILSAFE = True
 
+# This is a test comment for demonstrating Git commits
+
 def step1_open_paint():
     print("Opening Paint")
     try:
