@@ -13,7 +13,7 @@ def step1_open_paint():
     try:
         # Open Paint
         subprocess.Popen('mspaint.exe')
-        time.sleep(2)  # Wait for Paint to open
+        time.sleep(3)  # Wait for Paint to open
         print("Paint opened successfully")
         return True
     except Exception as e:
@@ -29,32 +29,32 @@ def step2_add_text():
         
         # Click on the text tool using keyboard shortcut 'T'
         pyautogui.press('t')
-        time.sleep(1)  # Wait for tool selection
+        time.sleep(2)  # Wait for tool selection
         
         # Calculate center of canvas
         canvas_x = x + paint_window.width // 2
-        canvas_y = y + paint_window.height // 2
+        canvas_y = y + paint_window.height // 2 - 100  # Position for text
         
-        # Click where to add text (center of canvas)
+        # Click where to add text
         pyautogui.click(x=canvas_x, y=canvas_y)
-        time.sleep(1)  # Wait for text box to appear
+        time.sleep(2)  # Wait for text box to appear
         
         # Press Ctrl+B for bold
         pyautogui.hotkey('ctrl', 'b')
-        time.sleep(0.5)
+        time.sleep(1)
         
         # Press Ctrl+Shift+> to increase font size multiple times
         for _ in range(3):
             pyautogui.hotkey('ctrl', 'shift', '>')
-            time.sleep(0.2)
+            time.sleep(0.5)
         
         # Type the text
-        pyautogui.write("This was drawn automatically!")
-        time.sleep(0.5)
+        pyautogui.write("Hello World")
+        time.sleep(2)  # Wait for text to be typed
         
         # Click outside to finish text editing
         pyautogui.click(x=canvas_x + 200, y=canvas_y + 200)
-        time.sleep(0.5)
+        time.sleep(1)
         
         print("Text added successfully")
         return True
